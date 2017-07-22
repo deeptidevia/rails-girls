@@ -463,3 +463,93 @@ Processing by IdeasController#index as HTML
 Completed 200 OK in 60ms (Views: 43.3ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/ideas" for 61.68.35.10 at 2017-07-22 05:42:23 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#index as HTML
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ideas" for 61.68.35.10 at 2017-07-22 05:42:28 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#index as HTML
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ideas/new" for 61.68.35.10 at 2017-07-22 05:42:33 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#new as HTML
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (46.3ms)
+  Rendered ideas/new.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 136ms (Views: 133.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ideas" for 61.68.35.10 at 2017-07-22 05:42:43 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TbGzaCuAKhKEeblDpADFE/owIgooVNytsmSsC1VVVY17PoNLmzqmCfqUcKDpQkAZi7Wcqasb8PA4aiugcEyzjw==", "idea"=>{"name"=>"coke", "description"=>""}, "commit"=>"Create Idea"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "ideas" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "coke"], ["description", ""], ["created_at", "2017-07-22 05:42:43.387716"], ["updated_at", "2017-07-22 05:42:43.387716"]]
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://railsgirls-deeptidevia.c9users.io/ideas/3
+Completed 302 Found in 65ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/ideas/3" for 61.68.35.10 at 2017-07-22 05:42:43 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 3]]
+  Rendered comments/_form.html.erb (5.8ms)
+  Rendered ideas/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 85ms (Views: 34.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/comments" for 61.68.35.10 at 2017-07-22 05:43:14 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ofXpnOSYKs1tn+/tUX0lGpdbel+P/6woJZWQoZIIstfe1tLdXb7yhE8dpYpJYeXnNNrwmd6+uOQWfwopVl/19A==", "comment"=>{"user_name"=>"coke", "body"=>"can", "idea_id"=>"3"}, "commit"=>"Create Comment"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_name", "body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_name", "coke"], ["body", "can"], ["idea_id", 3], ["created_at", "2017-07-22 05:43:14.699028"], ["updated_at", "2017-07-22 05:43:14.699028"]]
+  [1m[35m (133.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://railsgirls-deeptidevia.c9users.io/comments/1
+Completed 302 Found in 143ms (ActiveRecord: 134.4ms)
+
+
+Started GET "/comments/1" for 61.68.35.10 at 2017-07-22 05:43:15 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 44ms (Views: 39.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ideas" for 61.68.35.10 at 2017-07-22 05:43:23 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#index as HTML
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ideas" for 61.68.35.10 at 2017-07-22 05:46:08 +0000
+Cannot render console from 61.68.35.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IdeasController#index as HTML
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.5ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 127ms (Views: 124.1ms | ActiveRecord: 0.5ms)
+
+
